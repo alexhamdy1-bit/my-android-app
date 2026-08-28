@@ -17,10 +17,10 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Build APK
+    - name: Build APK with System Gradle
       run: |
         cd AlSharifScooter
-        gradle assembleDebug || ./gradlew assembleDebug
+        gradle assembleDebug
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
