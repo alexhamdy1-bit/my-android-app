@@ -17,10 +17,12 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Build APK with System Gradle
+    - name: Generate Wrapper and Build
       run: |
         cd AlSharifScooter
-        gradle assembleDebug
+        gradle wrapper --gradle-version 8.0
+        chmod +x gradlew
+        ./gradlew assembleDebug --stacktrace
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
